@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# React Form Practice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это репозиторий для практики реализации валидации формы с использованием React, Vite, TypeScript и styled-components.
 
-Currently, two official plugins are available:
+## Стек технологий
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**
+- **Vite**
+- **TypeScript**
+- **styled-components**
 
-## Expanding the ESLint configuration
+## Описание
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+В данном проекте представлена форма с тремя полями:
+- Email
+- Пароль
+- Подтверждение пароля
 
-- Configure the top-level `parserOptions` property like this:
+### Валидация
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- При вводе неправильного значения в поле отображается сообщение об ошибке ниже поля ввода.
+- После правильного заполнения всех полей происходит автофокус на кнопку отправки формы.
+- Кнопка отправки блокируется при наличии неправильных значений в форме.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Структура репозитория
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Проект содержит две ветки:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **main**: код без использования библиотек для валидации.
+- **new-branch**: код с использованием библиотек [React Hook Form](https://react-hook-form.com/) и [Yup](https://github.com/jquense/yup) для валидации форм.
+
+## Демо
+
+Посмотреть работу формы можно на [GitHub Pages](https://blinklay.github.io/react-form-practice/).
+
+## Скриншот
+
+![Скриншот формы](./public/screen.png)
+
+## Установка
+
+Чтобы запустить проект локально, выполните следующие команды:
+
+```bash
+git clone https://github.com/blinklay/react-form-practice.git
+cd react-form-practice
+npm install
+npm run dev
