@@ -72,19 +72,20 @@ const FormInput = styled.input`
   width: 100%;
 `;
 
-const SubmitButton = styled.button`
+interface SubmitButtonProps {
+  isdisabled: boolean;
+}
+
+const SubmitButton = styled.button<SubmitButtonProps>`
   color: var(--color-background-secondary);
   background-color: var(--color-text);
   align-self: center;
   padding: 4px 10px;
   font-weight: 600;
   border-radius: 10px;
-  cursor: pointer;
-
-  &[disabled] {
-    cursor: default;
-    opacity: 0.5;
-  }
+  cursor: ${(props) => (props.isdisabled ? "default" : "pointer")};
+  opacity: ${(props) => (props.isdisabled ? "0.5" : "1")};
+  user-select: ${(props) => (props.isdisabled ? "none" : "auto")};
 `;
 
 interface CleanFieldButtonProps {
@@ -152,7 +153,10 @@ function App() {
       !fieldsError.confirmPassword
     ) {
       submitRef.current?.focus();
+      return true;
     }
+
+    return false;
   };
 
   checkFields();
@@ -241,12 +245,12 @@ function App() {
         </FormRow>
 
         <SubmitButton
-          ref={submitRef}
-          disabled={
+          isdisabled={
             !!fieldsError.email ||
             !!fieldsError.password ||
             !!fieldsError.confirmPassword
           }
+          ref={submitRef}
         >
           Register
         </SubmitButton>
