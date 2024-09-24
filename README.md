@@ -4,10 +4,12 @@
 
 ## Стек технологий
 
-- **React**
-- **Vite**
-- **TypeScript**
-- **styled-components**
+<p>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="React" width="40" height="40"/>
+  <img src="https://vitejs.dev/logo.svg" alt="Vite" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="40" height="40"/>
+  <img src="https://styled-components.com/logo.png" alt="Styled Components" width="40" height="40"/>
+</p>
 
 ## Описание
 
